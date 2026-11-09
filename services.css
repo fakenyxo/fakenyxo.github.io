@@ -51,3 +51,7 @@ details{padding:16px 0;border-bottom:1px solid var(--line)}summary{cursor:pointe
 /* Keep the secondary CTA readable in its default state. */
 .cta-actions .button.secondary{background:#fff;color:#1c4b39!important;border-color:#d9e4dc;transition:background-color .2s ease,color .2s ease,border-color .2s ease}
 .cta-actions .button.secondary:hover,.cta-actions .button.secondary:focus-visible{background:#1c4b39;color:#fff!important;border-color:#1c4b39}
+
+
+/* Keep the expanded seven-link navigation usable on tablet widths. */
+@media(max-width:1100px){.nav-wrap{position:relative}.menu-toggle{display:inline-flex}.nav-book{display:none}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 22px 24px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 15px 25px rgba(0,0,0,.07);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links li{padding:11px 0;border-bottom:1px solid #eef2ee}.nav-links a[aria-current=page]:after{display:none}}
