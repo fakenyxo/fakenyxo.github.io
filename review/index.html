@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Write a Review · Mohd Kaif Khan</title>
+<link rel="stylesheet" href="/services.css?v=20261109-5">
+<script src="/script.js" defer></script>
+<link rel="icon" href="/favicon.svg?v=20261109-5" type="image/svg+xml">
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap"><a class="brand" href="/" aria-label="Nyxo HVAC home"><img src="/logo.svg?v=20261109-5" alt=""><span class="brand-name">Nyxo HVAC</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button><nav aria-label="Main navigation"><ul class="nav-links" id="primary-navigation"><li><a href="/">Services</a></li><li><a href="/hire/">Quote request</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul></nav><div class="nav-actions"><a class="nav-book" href="/contact/">Book consultation</a><a class="cart-link" href="/hire/" aria-label="Request a project quote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></a></div></div></header>
+<main class="wrap">
+  <div class="eyebrow">Client Reviews</div>
+  <h1>Share your <em>experience</em></h1>
+  <p class="lead">Worked with me on an HVAC project? I'd value your honest feedback. It helps future clients and helps me improve.</p>
+  <div class="panel">
+    <div class="f2">
+      <div><label>Your name *</label><input id="n" autocomplete="name"></div>
+      <div><label>Email * (never published)</label><input id="e" type="email" autocomplete="email"></div>
+      <div><label>Role / company (optional)</label><input id="r" placeholder="e.g. Architect, ABC Designs"></div>
+      <div><label>Project type</label><select id="pt"><option>Residential</option><option>Commercial</option><option>Hospital</option><option>Other</option></select></div>
+      <div><label>Quote reference (if hired via this site)</label><input id="q" placeholder="e.g. KK-261007-AB12"></div>
+      <div><label>Show my name as</label><select id="dn"><option value="full">Full name</option><option value="short">First name + last initial</option><option value="init">Initials only</option></select></div>
+      <div class="full"><label>Your rating *</label><div class="stars" id="stars"></div></div>
+      <div class="full"><label>Your review * (at least 20 characters)</label><textarea id="m"></textarea></div>
+    </div>
+    <label class="agree"><input type="checkbox" id="ok"><span>I confirm this review is my own honest experience, and I allow Mohd Kaif Khan to publish it on his website and professional profiles with the name format chosen above (and role/company if given). My email is not published. I can ask for edits or removal at any time. See the <a href="/privacy/">Privacy Policy</a>.</span></label>
+    <p class="note" id="hint"></p>
+    <div class="btns locked" id="btns">
+      <button class="btn" id="wa" type="button">Send on WhatsApp</button>
+      <a class="btn ghost" id="mail" href="#">Send by email</a>
+    </div>
+    <p class="note">This form stores nothing. It opens WhatsApp or your email app with your review ready to send. Reviews are checked before publishing; abusive, off-topic or unverifiable reviews may not be published.</p>
+  </div>
+</main>
+<footer class="site-footer">
+ <div class="container">
+  <div class="footer-grid">
+   <div class="footer-col">
+    <a class="footer-logo" href="/" aria-label="Nyxo HVAC home"><img src="/logo.svg?v=20261109-5" alt=""><span>Nyxo HVAC</span></a>
+    <p>HVAC design support for commercial, healthcare, hospitality and institutional buildings, with a focus on calculations, coordinated drawings and technical documentation.</p>
+    <p>Based in New Delhi, India · Serving projects across India.</p>
+   </div>
+   <div class="footer-col">
+    <h3>Services</h3>
+    <a href="/#services">HVAC design consultancy</a>
+    <a href="/#services">Load calculations &amp; sizing</a>
+    <a href="/#services">Ventilation &amp; duct design</a>
+    <a href="/#services">Standards &amp; documentation</a>
+    <a href="/#services">Tender &amp; vendor support</a>
+   </div>
+   <div class="footer-col">
+    <h3>Company</h3>
+    <a href="/about/">About</a>
+    <a href="/pricing/">Services &amp; pricing</a>
+    <a href="/hire/">Request a project quote</a>
+    <a href="/review/">Write a Review</a>
+    <h3 class="footer-subhead">Policies</h3>
+    <a href="/terms/">Terms &amp; Conditions</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <a href="/refund/">Refund &amp; Cancellation Policy</a>
+    <a href="/delivery/">Service Delivery Policy</a>
+   </div>
+   <div class="footer-col">
+    <h3>Contact</h3>
+    <a href="/contact/">Contact Us</a>
+    <a href="/support/">Support</a>
+    <a href="mailto:mohdkaifkhan.w@gmail.com">mohdkaifkhan.w@gmail.com</a>
+    <a href="https://wa.me/918126690277" target="_blank" rel="noopener">+91 81266 90277 (WhatsApp)</a>
+    <p>New Delhi, India</p>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <span>© <span id="year">2026</span> Nyxo HVAC. All rights reserved.</span>
+   <span>All prices are in Indian Rupees (INR).</span>
+  </div>
+ </div>
+</footer>
+<script>
+const $=id=>document.getElementById(id);
+const EMAIL='mohdkaifkhan.w@gmail.com', WA='918126690277';
+let rating=0;
+const st=$('stars');
+for(let i=1;i<=5;i++){const b=document.createElement('button');b.type='button';b.textContent='★';b.setAttribute('aria-label',i+' star'+(i>1?'s':''));b.onclick=()=>{rating=i;paint();gate()};st.appendChild(b)}
+function paint(){[...st.children].forEach((b,i)=>b.classList.toggle('on',i<rating))}
+const shown=()=>{const p=$('n').value.trim().split(/\s+/);const f=p[0]||'',l=p.length>1?p[p.length-1]:'';
+  if($('dn').value==='short')return l?f+' '+l[0].toUpperCase()+'.':f;
+  if($('dn').value==='init')return p.map(w=>w[0]?w[0].toUpperCase()+'.':'').join('');
+  return $('n').value.trim()};
+const ok={n:()=>$('n').value.trim().length>=2,e:()=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('e').value.trim()),s:()=>rating>0,m:()=>$('m').value.trim().length>=20,c:()=>$('ok').checked,
+  q:()=>!$('q').value.trim()||/^KK-[A-Z0-9-]{4,}$/i.test($('q').value.trim())};
+const msg=()=>`Hi Kaif, here is my review.\n\nRating: ${rating}/5\nProject type: ${$('pt').value}\nQuote ref: ${$('q').value.trim()||'-'}\n\n"${$('m').value.trim()}"\n\nPublish as: ${shown()}${$('r').value.trim()?', '+$('r').value.trim():''}\nPermission to publish: Yes\nEmail (not for publishing): ${$('e').value.trim()}`;
+const ready=()=>Object.values(ok).every(f=>f());
+function gate(){
+  const lab={n:'your name',e:'a valid email',s:'a star rating',m:'your review (20+ characters)',c:'permission to publish',q:'a valid quote reference (or leave it blank)'};
+  const miss=Object.keys(ok).filter(k=>!ok[k]());
+  ['n','e','m','q'].forEach(k=>$(k).classList.toggle('bad',!ok[k]()&&$(k).value!==''));
+  $('btns').classList.toggle('locked',!ready());
+  $('hint').textContent=ready()?'':'Please provide '+miss.map(k=>lab[k]).join(', ')+'.';
+  $('mail').href=`mailto:${EMAIL}?subject=${encodeURIComponent('Client review — '+rating+'/5')}&body=${encodeURIComponent(msg())}`;
+}
+['n','e','r','pt','q','dn','m','ok'].forEach(id=>$(id).addEventListener('input',gate));
+$('wa').onclick=()=>{if(ready())window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg())}`,'_blank')};
+$('mail').addEventListener('click',e=>{if(!ready())e.preventDefault()});
+gate();
+</script>
+</body>
+</html>
